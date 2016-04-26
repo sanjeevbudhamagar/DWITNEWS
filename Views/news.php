@@ -161,7 +161,7 @@ require('../Common/Common.php');
         $('#insert-news').modal('show');
         $('#insert-news .modal-title').html("Add News");
         $('#insert-news button[type=submit]').html("Save News");
-        $('#user-form').attr('action','../Controller/newsHandler.php');
+        $('#news-form').attr('action','../Controller/newsHandler.php');
         $('#mode').attr('value','add');
 
         });

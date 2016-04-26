@@ -36,7 +36,7 @@ require('../Common/Common.php');
 
 
             echo '
-                <table class="table table-striped">
+                <table class="table table-striped table-responsive">
                         <thead>
                             <tr>
                                 <th>Photo</th>

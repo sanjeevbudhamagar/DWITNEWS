@@ -22,9 +22,10 @@ if($_POST["mode"]=="add"){
 
     move_uploaded_file($news_image_tmp,"../Images/news_image/$news_image");
 
+    $result = array();
     $result = $objCommon->createNews($news_headline,$news_body,$category,$search_keyword,$news_image);
 
-    if($result){
+    if($result['message']=='success'){
         $_SESSION['add'] ="success";
     } else {
         $_SESSION['add'] ="error";

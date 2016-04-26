@@ -43,7 +43,7 @@ require('../Common/Common.php');
         $userList = $objCommon->getUser();
 
         echo '
-                <table class="table table-bordered">
+                <table class="table table-bordered table-responsive">
                         <thead>
                             <tr>
                                 <th>Photo</th>
