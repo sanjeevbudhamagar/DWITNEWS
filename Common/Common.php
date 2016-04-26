@@ -57,7 +57,15 @@ class Common {
 
         $result = mysqli_query($connection,$create_user);
 
-        return $result;
+        $data = array();
+
+        if($result){
+            $data['message']='success';
+        }else{
+            $data['message']='error';
+        }
+
+        return $data;
     }
 
     public function editUser($id){
@@ -96,7 +104,15 @@ class Common {
 
         $result = mysqli_query($connection,$delete_user);
 
-        return $result;
+        $data = array();
+
+        if($result){
+            $data['message']='success';
+        }else{
+            $data['message']='error';
+        }
+
+        return $data;
 
     }
 
@@ -117,8 +133,15 @@ class Common {
         $update_user = "UPDATE user SET first_name = '$fName',last_name='$lName',mobile_number='$mNumber',phone_number='$pNumber',address='$address',role='$role',email_address='$email_address',status='$status',last_updated='$update_date' WHERE id='$id'; ";
         $result = mysqli_query($connection,$update_user);
 
-        return $result;
+        $data = array();
 
+        if($result){
+            $data['message']='success';
+        }else{
+            $data['message']='error';
+        }
+
+        return $data;
     }
 
     public function getNews(){
@@ -184,7 +207,15 @@ class Common {
 
         $result = mysqli_query($connection,$create_news);
 
-        return $result;
+        $data = array();
+
+        if($result){
+            $data['message']='success';
+        }else{
+            $data['message']='error';
+        }
+
+        return $data;
 
     }
 
@@ -196,7 +227,15 @@ class Common {
 
         $result = mysqli_query($connection,$delete_news);
 
-        return $result;
+        $data = array();
+
+        if($result){
+            $data['message']='success';
+        }else{
+            $data['message']='error';
+        }
+
+        return $data;
     }
 
     public function updateNews($news_headline,$news_body,$category,$id){
@@ -209,8 +248,15 @@ class Common {
 
         $result = mysqli_query($connection,$update_news);
 
-        return $result;
+        $data = array();
 
+        if($result){
+            $data['message']='success';
+        }else{
+            $data['message']='error';
+        }
+
+        return $data;
 
     }
 }

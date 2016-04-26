@@ -49,10 +49,10 @@ if($_POST["mode"]=="edit"){
     $status = $_POST['status'];
     $email_address = $_POST['emailAddress'];
 
+    $result = array();
     $result = $objCommon->updateUser($first_name,$last_name,$mobile_number,$phone_number,$address,$role,$status,$email_address,$id);
 
-
-    if($result){
+    if($result['message']=='success'){
         $_SESSION['edit'] ="success";
     } else {
         $_SESSION['edit'] ="error";
@@ -65,13 +65,15 @@ if($_POST["mode"]=="delete"){
 
     $id = $_POST['id'];
 
-    $result = $objCommon->deleteUser($id);
+    $responseArray = array();
 
-    if($result){
+    $responseArray = $objCommon->deleteUser($id);
+
+   /* if($result){
         $responseArray['message'] ="success";
     } else {
         $responseArray['message'] ="error";
-    }
+    }*/
 
     echo json_encode($responseArray);
 }
