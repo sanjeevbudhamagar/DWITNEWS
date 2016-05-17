@@ -101,5 +101,40 @@ function deleteUser(incomingId){
         return false;
 
     }
+}
 
+function profileView(id){
+
+    var mode = "view";
+
+    $.ajax({
+        type:"POST",
+        url:'../Controller/userHandler.php',
+        data:"mode="+mode+"&id="+id,
+        success:function(data){
+            var data = JSON.parse(data);
+            var image_url = "../Images/profile_pictures/"+data['user'].profile_picture;
+
+            $('#view_profile').modal('show');
+            $('#view_profile .modal-title').html("Profile");
+            $('#view_profile #fullName').html(data['user'].first_name + " " + data['user'].last_name);
+            $('#view_profile #address').html(data['user'].address);
+            $('#view_profile #mobileNumber').html(data['user'].mobile_number);
+            $('#view_profile #phoneNumber').html(data['user'].phone_number);
+            $('#view_profile #emailAddress').html(data['user'].email_address);
+            $('#view_profile img').attr("src",image_url);
+
+            var number = 1;
+            for(var i = 0; i < data['news'].length; i++){
+                var date_updated = data['news'][i].last_updated?data['news'][i].last_updated:'Not Updated';
+
+                var tdList = "<tr><td>"+number+"</td><td>"+data['news'][i].news_headline+"</td><td>"+data['news'][i].created_date+"</td><td>"+date_updated+"</td></tr>";
+                number++;
+                $('#newsListBody').append(tdList)
+            }
+
+        },error: function (er) {
+            alert("Error while Creating" +er);
+        }
+    });
 }

@@ -13,14 +13,14 @@ $objCommon = new Common();
 if($_POST["mode"]=="add"){
 
     $news_headline = $_POST['newsHeadline'];
-    $news_body = $_POST['newsBody'];
+    $news_body = addslashes($_POST['newsBody']);
     $category = $_POST['category'];
     $search_keyword = $_POST['searchKeyword'];
 
     $news_image = $_FILES['newsImage']['name'];
     $news_image_tmp = $_FILES['newsImage']['tmp_name'];
 
-    move_uploaded_file($news_image_tmp,"../Images/news_image/$news_image");
+    move_uploaded_file($news_image_tmp,"../Images/news_images/$news_image");
 
     $result = array();
     $result = $objCommon->createNews($news_headline,$news_body,$category,$search_keyword,$news_image);

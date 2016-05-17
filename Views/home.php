@@ -43,11 +43,11 @@ require('../Common/Common.php');
                     <div id="left-news-content" class="row">
 
                         <div class="col-sm-4">
-                            <img id="news-image" src="../Images/news.png" style="width: 50%">
+                            <img id="news-image" src="../Images/news_images/' .$news["image"].'" style="width: 50%">
                         </div>
 
                         <div class="col-md-8">
-                            <h1>'.$news["news_headline"].'</h1>
+                            <h1>' .$news["news_headline"].'</h1>
                             <p>'.$news["news_body"].'</p>
                             <button id="news-button" type="button">Read</button>
                         </div>

@@ -50,7 +50,7 @@ function editNews(incomingId){
     $('#insert-news #news-img').hide();
     $('#insert-news .modal-title').html("Edit this News");
     $('#insert-news button[type=submit]').html("Save Changes");
-    $('#user-form').attr('action','../Controller/newsHandler.php');
+    $('#news-form').attr('action','../Controller/newsHandler.php');
     $('#mode').attr('value','edit');
     $('#user_id').attr('value',incomingId);
 

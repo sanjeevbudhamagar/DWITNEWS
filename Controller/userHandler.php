@@ -77,3 +77,16 @@ if($_POST["mode"]=="delete"){
 
     echo json_encode($responseArray);
 }
+if($_POST["mode"]=="view"){
+
+    $id = $_POST['id'];
+
+    $responseArray = array();
+
+    $responseArray["user"] = $objCommon->viewProfile($id);
+
+    $responseArray["news"] = $objCommon->selectNewsByUser($id);
+
+    echo json_encode($responseArray);
+
+}

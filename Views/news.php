@@ -62,7 +62,7 @@ require('../Common/Common.php');
             $id = $news["id"];
             echo'
                     <tr id="'.$id.'">
-                                <td><img class="img-thumbnail" src="../Images/news_image/'.$news["image"].'" style="height: 70px;width:80px;"></td>
+                                <td><img class="img-thumbnail" src="../Images/news_images/'.$news["image"].'" style="height: 70px;width:80px;"></td>
                                 <td id="news-headline">'.$news["news_headline"].'</td>
                                 <td id="news-body">'.$news["news_body"].'</td>
                                 <td id="created-date">'.$news["created_date"].'</td>
@@ -123,7 +123,7 @@ require('../Common/Common.php');
                                 <select class="form-control" id="category" name="category">
                                     <option value="Sports">Sports</option>
                                     <option value="Social">Social</option>
-                                    <option value="Sports">Club Activities</option>
+                                    <option value="Club Activities">Club Activities</option>
                                 </select>
                             </div>
                         </div>
@@ -136,9 +136,8 @@ require('../Common/Common.php');
 
                         <div id="news-img" class="form-group">
                             <label class="control-label col-sm-4" for="news_image">News Image</label>
-                            <div class="col-sm-8">
-                                <input type="file" class="form-control" id="news_image" name="newsImage" >
-                            </div>
+
+                            <input type="file" id="news_image" name="newsImage" >
                         </div>
 
                     </form>

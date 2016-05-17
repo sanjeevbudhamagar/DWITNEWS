@@ -73,16 +73,16 @@ require('../Common/Common.php');
 
             echo'
                     <tr id="'.$id.'">
-                        <td><img class="img-circle" src="../Images/profile_pictures/'.$user["profile_picture"].'" style="height: 70px;width:70px;"></td>
-                        <td id="first-name">'.$user["first_name"].'</td>
-                        <td id="last-name">'.$user["last_name"].'</td>
-                        <td id="mobile-number">'.$user["mobile_number"].'</td>
-                        <td id="phone-number">'.$user["phone_number"].'</td>
-                        <td id="email-address">'.$user["email_address"].'</td>
-                        <td id="address1">'.$user["address"].'</td>
-                        <td id="role1">'.$user["role"].'</td>
-                        <td id="status1">'.$status.'</td>
-                        <td>
+                        <td style="vertical-align: middle;"><img class="img-circle" src="../Images/profile_pictures/'.$user["profile_picture"].'" style="height: 70px;width:70px;"></td>
+                        <td style="vertical-align: middle;" id="first-name">'.$user["first_name"].'</td>
+                        <td style="vertical-align: middle;" id="last-name">'.$user["last_name"].'</td>
+                        <td style="vertical-align: middle;" id="mobile-number">'.$user["mobile_number"].'</td>
+                        <td style="vertical-align: middle;" id="phone-number">'.$user["phone_number"].'</td>
+                        <td style="vertical-align: middle;" id="email-address">'.$user["email_address"].'</td>
+                        <td style="vertical-align: middle;" id="address1">'.$user["address"].'</td>
+                        <td style="vertical-align: middle;" id="role1">'.$user["role"].'</td>
+                        <td style="vertical-align: middle;" id="status1">'.$status.'</td>
+                        <td style="vertical-align: middle;">
                             <button class="btn btn-primary" onclick="return editUser('.$id.');" title="EDIT"><i class="glyphicon glyphicon-edit"></i></button>
                             <button class="btn btn-danger" title="DELETE" onclick="return deleteUser('.$id.');"><i class="glyphicon glyphicon-trash"></i></button>
                             <button class="btn btn-info" title="DETAILS"><i class="glyphicon glyphicon-info-sign"></i></button>
@@ -176,9 +176,8 @@ require('../Common/Common.php');
                         </div>
                         <div id="profile-img" class="form-group">
                             <label class="control-label col-sm-4" for="profile-picture">Profile Picture</label>
-                            <div class="col-sm-8">
-                                <input type="file" class="form-control" id="profile-picture" name="profileImg">
-                            </div>
+
+                            <input type="file" id="profile-picture" name="profileImg">
                         </div>
                     </form>
 
@@ -192,6 +191,9 @@ require('../Common/Common.php');
             </div>
         </div>
     </div>
+
+
+
 
     <script type="text/javascript">
         $('#add-user').click(function(){

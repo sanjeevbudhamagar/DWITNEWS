@@ -13,7 +13,7 @@ session_start();
 if($_POST){
 
     $email = addslashes($_POST['email']);
-    $password = md5($_POST['password']);
+    $password = /*md5(*/$_POST['password']/*)*/;
 
     $select_sql = "SELECT *FROM user WHERE email_address='$email' and password='$password' and status=1";
 

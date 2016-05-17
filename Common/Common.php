@@ -53,7 +53,9 @@ class Common {
         else{
             $status=0;
         }
+
         $create_user = "INSERT INTO user VALUES(null,'$fName','$lName','$mNumber','$pNumber','$address','$role','$status','$email_address','$profile_picture','$pwd','$created_date')";
+
 
         $result = mysqli_query($connection,$create_user);
 
@@ -116,6 +118,32 @@ class Common {
 
     }
 
+    public function viewProfile($id){
+
+        global $connection;
+
+        $user_profile = "SELECT *FROM user WHERE id = '$id' ";
+
+        $result = mysqli_query($connection,$user_profile);
+
+        $data = array();
+        $i = 0;
+        while($row = mysqli_fetch_assoc($result))
+        {
+            $data['id'] = $row["id"];
+            $data['email_address'] = $row["email_address"];
+            $data['status'] = $row["status"];
+            $data['role'] = $row["role"];
+            $data['first_name'] = $row["first_name"];
+            $data['last_name'] = $row["last_name"];
+            $data['mobile_number'] = $row["mobile_number"];
+            $data['phone_number'] = $row["phone_number"];
+            $data['address'] = $row["address"];
+            $data['profile_picture'] = $row["profile_picture"];
+            $i++;
+        }
+        return $data;
+    }
 
     public function updateUser($fName,$lName,$mNumber,$pNumber,$address,$role,$status,$email_address,$id){
 
@@ -164,7 +192,7 @@ class Common {
             $data[$i]['last_updated'] = $row["last_updated"];
             $data[$i]['search_keywords'] = $row["search_keywords"];
             $data[$i]['cat_id'] = $row["category"];
-            $data[$i]['image'] = $row["image"];
+            $data[$i]['image'] = $row["news_image"];
             $i++;
         }
         return $data;
@@ -257,6 +285,31 @@ class Common {
         }
 
         return $data;
+    }
 
+    public function selectNewsByUser($id){
+        global $connection;
+
+        $news_sql = "SELECT *FROM news WHERE user_id = '$id' ";
+
+        $result = mysqli_query($connection,$news_sql);
+
+        $data = array();
+
+        $i = 0;
+
+        while($row = mysqli_fetch_assoc($result))
+        {
+            $data[$i]['id'] = $row["id"];
+            $data[$i]['news_headline'] = $row["news_headline"];
+            $data[$i]['news_body'] = $row["news_body"];
+            $data[$i]['created_date'] = $row["created_date"];
+            $data[$i]['last_updated'] = $row["last_updated"];
+            $data[$i]['search_keywords'] = $row["search_keywords"];
+            $data[$i]['cat_id'] = $row["category"];
+            $data[$i]['image'] = $row["news_image"];
+            $i++;
+        }
+        return $data;
     }
 }

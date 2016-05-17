@@ -19,7 +19,7 @@ $(document).ready(function(){
 
                 var text = '<di style="height: 10%;"><ul data-role="listview" data-inset="true">'+
                 '<li>'+
-                '<div style="width: 20%;height: auto;float: left"><img id="news_picture" src="../../Images/news_image/'+image+'"/></div>'+
+                '<div style="width: 20%;height: auto;float: left"><img id="news_picture" src="../../Images/news_images/'+image+'"/></div>'+
                 '<div style="width: 70%;height: auto;float: right;">'+
                 '<p id="news_title"><h1>'+title+'</h1></p>'+
                 '<p id="news_body">'+body+'</p>'+
