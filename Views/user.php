@@ -205,6 +205,9 @@ require('../Common/Common.php');
 
         });
 
+        $('.modal').on('hidden.bs.modal', function(){
+            $(this).find('form')[0].reset();
+        });
         /*$('#edit-user').click(function(){
 
 
